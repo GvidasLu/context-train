@@ -4,16 +4,16 @@ import AddTask from "../addTask/AddTask";
 import Task from "../task/Task";
 
 const Tasks = () => {
-    const {tasks} = useGlobalContext(); //Gavejas
+    const {tasks, isOpen, openForm} = useGlobalContext(); //Gavejas
 
     console.log(tasks)
     return(
         <Container>
             <h2 className="m-5 text-center">Tasks list</h2>
             <div className="m-3 text-center">
-                <Button className="mx-auto">Add task</Button>
+                <Button onClick={openForm} className="mx-auto">Add task</Button>
             </div>
-            <AddTask />
+            {(isOpen) && <AddTask />}
             <ListGroup>
                 {tasks.lenght && tasks.map((task,i) => <Task
                     key={i}
