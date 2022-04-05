@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useState, useContext} from "react";
 import React from "react";
 
 
@@ -40,7 +40,7 @@ const AppProvider = ({children}) => {  // sukuriamas Tiekejas
 }
 
 export const useGlobalContext = () => {
-    return useContext(AppContext)
-}
+    return useContext(AppContext);
+};
 
-export {AppContext, AppProvider}
+export { AppContext, AppProvider };
