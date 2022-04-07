@@ -5,6 +5,7 @@ import {useGlobalContext} from "../../context/TasksContext";
 const AddTask = () =>  {
     const {addTask, closeForm} = useGlobalContext();
     const [newTask, setNewTask] = useState({
+        'id':Math.random().toString(16).slice(2),
         'title':'',
         'desc':''
     })
@@ -22,6 +23,8 @@ const AddTask = () =>  {
         closeForm();
     }
 
+    console.log(newTask)
+
     return (
         <Form className="m-2" onSubmit={submitHandler}>
             <Form.Group className="mt-2">
@@ -36,7 +39,8 @@ const AddTask = () =>  {
             <Form.Group className="mt-2">
                 <Form.Control 
                 as="textarea"
-                defaultValue={'desc'}
+                placeholder="Uzduoties aprasymas"
+                defaultValue={''}
                 onChange={handleChange}
                 name="desc"
                 />
